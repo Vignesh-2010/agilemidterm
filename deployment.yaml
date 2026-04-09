@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conference-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: conference
+  template:
+    metadata:
+      labels:
+        app: conference
+    spec:
+      containers:
+      - name: conference-container
+        image: vignesh201005/agilemid
+        ports:
+        - containerPort: 80
